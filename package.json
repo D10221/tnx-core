@@ -2,8 +2,8 @@
   "name": "tnx-core",
   "version": "1.0.0",
   "description": "",
-  "main": "tnx-core.js",
-  "typings": "tnx-core.d.ts",
+  "main": "built/tnx-core.js",
+  "typings": "built/tnx-core.d.ts",
   "scripts": {
     "test": "mocha built/**/*_test.js",
     "buid": "tsc -p ."
