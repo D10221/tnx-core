@@ -1,4 +1,8 @@
-import { IObservableThing} from "./interfaces";
+
+import {IObservableThing} from "./interfaces";
+
+import * as _ from 'lodash';
+
 
 export function ObservableThingProperty(target, key){
     

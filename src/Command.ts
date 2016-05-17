@@ -1,7 +1,6 @@
-export interface Command {
-    execute(x:any);
-    canExecute(x:any):boolean ;
-}
+
+
+import {Command} from "./interfaces";
 
 export class RelayCommand implements Command {
 

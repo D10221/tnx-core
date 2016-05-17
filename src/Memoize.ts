@@ -1,7 +1,7 @@
 
 var memoized = new  WeakMap<Object,any>();
 
-export function invalidate(target: Object, key: string){
+export function invalidate(target: Object, key: string): void {
     var cached = memoized.get(target);
     if (cached) {
         cached.delete(key);

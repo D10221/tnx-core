@@ -1,4 +1,7 @@
-import {EventArgs, IObservableThing} from "./interfaces";
+
+
+import {IObservableThing, EventArgs} from "./interfaces";
+
 export class ObservableThing implements IObservableThing, Rx.Disposable{
 
     xEvents = new Rx.Subject<EventArgs>();

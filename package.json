@@ -2,14 +2,20 @@
   "name": "tnx-core",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "tnx-core.js",
+  "typings": "tnx-core.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha built/**/*_test.js",
+    "buid": "tsc -p ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.12.0",
     "rx": "^4.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
   }
 }
