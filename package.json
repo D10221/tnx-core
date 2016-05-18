@@ -2,11 +2,12 @@
   "name": "tnx-core",
   "version": "1.0.0",
   "description": "",
-  "main": "src/tnx-core.ts",
-  "typings": "src/tnx-core.d.ts",
+  "main": "dist/tnx-core.js",
+  "typings": "dist/tnx-core.d.ts",
   "scripts": {
     "test": "mocha built/**/*_test.js",
-    "buid": "tsc -p ."
+    "buid": "tsc -p .",
+    "bundle": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,8 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10"
   }
 }

@@ -4,7 +4,7 @@
         "target": "es5",
         "moduleResolution": "node",
         "noImplicitAny": false,
-        "sourceMap": false,
+        "sourceMap": true,
         "outDir": "built",
         "experimentalDecorators": true,
         "declaration": true,
@@ -12,6 +12,6 @@
         "preserveConstEnums": true
     },
     "exclude": [
-        "node_modules", "built"
+        "node_modules", "built","dist"
     ]
 }
