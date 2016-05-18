@@ -2,7 +2,7 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("tnx-core", [], factory);
+		define([], factory);
 	else if(typeof exports === 'object')
 		exports["tnx-core"] = factory();
 	else
@@ -64,6 +64,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	__export(__webpack_require__(4));
 	__export(__webpack_require__(5));
 	__export(__webpack_require__(8));
+	__export(__webpack_require__(9));
+	__export(__webpack_require__(10));
 
 
 /***/ },
@@ -16566,6 +16568,53 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return TinytStore;
 	}());
 	exports.TinytStore = TinytStore;
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	"use strict";
+	(function (Visibility) {
+	    Visibility[Visibility["visible"] = 0] = "visible";
+	    Visibility[Visibility["hidden"] = 1] = "hidden";
+	})(exports.Visibility || (exports.Visibility = {}));
+	var Visibility = exports.Visibility;
+	(function (SortDirection) {
+	    SortDirection[SortDirection["desc"] = 0] = "desc";
+	    SortDirection[SortDirection["asc"] = 1] = "asc";
+	})(exports.SortDirection || (exports.SortDirection = {}));
+	var SortDirection = exports.SortDirection;
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var BaseController = (function () {
+	    function BaseController($scope) {
+	        var _this = this;
+	        this.xEvents = new Rx.Subject();
+	        this.disposables = new Rx.CompositeDisposable();
+	        $scope.$on('$destroy', function () {
+	            console.log('Table Ctrl disposing');
+	            // watcherDispose();
+	            _this.dispose();
+	        });
+	    }
+	    BaseController.prototype.dispose = function () {
+	        this.disposables.dispose();
+	    };
+	    BaseController.prototype.raiseEvent = function (key, value) {
+	        this.xEvents.onNext({
+	            sender: this,
+	            args: { key: key, value: value || true }
+	        });
+	    };
+	    return BaseController;
+	}());
+	exports.BaseController = BaseController;
 
 
 /***/ }

@@ -5,3 +5,4 @@ export * from './/ObservableThing';
 export * from './/ObservableThingProperty';
 export * from './TinytStore';
 export * from './interfaces';
+export * from './TnxController';

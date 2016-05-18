@@ -18,3 +18,15 @@ export interface Command {
     execute(x:any);
     canExecute(x:any):boolean ;
 }
+
+export interface IObservableController extends IObservableThing, Rx.Disposable {
+
+}
+
+export enum Visibility {
+    visible, hidden
+}
+
+export enum SortDirection {
+    desc, asc
+}
