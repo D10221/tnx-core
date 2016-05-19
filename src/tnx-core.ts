@@ -12,7 +12,7 @@ export * from './TinytStore';
 
 export * from './interfaces';
 
-export * from './TnxController';
+export * from './BaseController';
 
 
 
