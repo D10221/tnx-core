@@ -1,9 +1,9 @@
-
+import * as _ from 'lodash';
 import { memoize, invalidate } from "./Memoize";
 
 import * as chai  from 'chai'
 
-import * as _ from 'lodash';
+
 
 class Randomist{
     

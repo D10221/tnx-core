@@ -12,7 +12,7 @@ export function ObservableThingProperty(target, key){
         }
         (target as IObservableThing)
             .xEvents
-            .onNext({sender: target, args:{ key: key, value: value}});
+            .next({sender: target, args:{ key: key, value: value}});
     };
 
     var getter = (target)=> {

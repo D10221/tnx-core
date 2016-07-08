@@ -1,19 +1,22 @@
+import {Disposable} from './interfaces';
 
+import {Observable, Subject, Subscription} from 'rxjs';
 
 import {IObservableThing, EventArgs} from "./interfaces";
 
-export class ObservableThing implements IObservableThing, Rx.Disposable{
+export class ObservableThing implements IObservableThing, Disposable{
 
-    xEvents = new Rx.Subject<EventArgs>();
+    xEvents = new Subject<EventArgs>();
 
-    disposables = new Rx.CompositeDisposable();
+    disposables:Subscription;
 
     dispose(){
-        this.disposables.dispose();
+        if(this.disposables)
+        this.disposables.unsubscribe();
     }
 
     raiseEvent(key:string, value?: any){
-        this.xEvents.onNext({
+        this.xEvents.next({
             sender: this,
             args: { key: key, value: value }
         })

@@ -1,9 +1,10 @@
+import {Subject, Subscription} from 'rxjs';
 
 import { EventArgs, IObservableController } from "./interfaces";
 
 export class BaseController implements  IObservableController {
 
-    xEvents = new Rx.Subject<EventArgs>();
+    xEvents = new Subject<EventArgs>();
 
     constructor($scope: angular.IScope) {
 
@@ -14,14 +15,16 @@ export class BaseController implements  IObservableController {
         });
     }
 
-    disposables = new Rx.CompositeDisposable();
+    disposables : Subscription ; 
 
     dispose(){
-        this.disposables.dispose();
+        if(this.disposables){
+            this.disposables.unsubscribe();
+        }        
     }
 
     raiseEvent(key:string, value?: any){
-        this.xEvents.onNext({
+        this.xEvents.next({
             sender: this,
             args: { key: key, value: value || true  }
         })

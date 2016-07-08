@@ -2,7 +2,7 @@
 
 import { ObservableThingProperty } from "./tnx-core";
 
-import * as Rx from 'rx';
+import {Subject} from 'rxjs';
 
 import * as chai  from 'chai';
 
@@ -14,7 +14,7 @@ class WithProperties implements IObservableThing{
      * IObservableThing implementation
      * @type {Subject<EventArgs>}
      */
-    xEvents = new  Rx.Subject<EventArgs>();
+    xEvents = new  Subject<EventArgs>();
     
     @ObservableThingProperty
     prop:any ;
@@ -29,7 +29,7 @@ describe('ObservableThingProperty',()=>{
         var eventValue = null;
 
         target.xEvents.asObservable()
-            .where(e=> e.args.key == 'prop')
+            .filter(e=> e.args.key == 'prop')
             .subscribe(e=>{
                // console.log(e);
                eventValue = e.args.value;

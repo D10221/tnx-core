@@ -1,4 +1,4 @@
-import * as Rx from 'rx';
+import {Subject} from 'rxjs';
 
 export interface EventArgs {
     sender: {},
@@ -11,7 +11,7 @@ export interface KeyValue {
 }
 
 export interface IObservableThing {
-    xEvents : Rx.Subject<EventArgs>;
+    xEvents : Subject<EventArgs>;
 }
 
 export interface Command {
@@ -19,7 +19,11 @@ export interface Command {
     canExecute(x:any):boolean ;
 }
 
-export interface IObservableController extends IObservableThing, Rx.Disposable {
+export interface Disposable {
+    dispose();
+}
+
+export interface IObservableController extends IObservableThing, Disposable {
 
 }
 
