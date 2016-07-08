@@ -1,8 +1,9 @@
+import { Subject, Subscription } from 'rxjs';
 import { EventArgs, IObservableController } from "./interfaces";
 export declare class BaseController implements IObservableController {
-    xEvents: Rx.Subject<EventArgs>;
+    xEvents: Subject<EventArgs>;
     constructor($scope: angular.IScope);
-    disposables: Rx.CompositeDisposable;
+    disposables: Subscription;
     dispose(): void;
     raiseEvent(key: string, value?: any): void;
 }

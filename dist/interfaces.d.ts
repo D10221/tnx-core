@@ -1,4 +1,4 @@
-import * as Rx from 'rx';
+import { Subject } from 'rxjs';
 export interface EventArgs {
     sender: {};
     args: KeyValue;
@@ -8,13 +8,16 @@ export interface KeyValue {
     value: any;
 }
 export interface IObservableThing {
-    xEvents: Rx.Subject<EventArgs>;
+    xEvents: Subject<EventArgs>;
 }
 export interface Command {
     execute(x: any): any;
     canExecute(x: any): boolean;
 }
-export interface IObservableController extends IObservableThing, Rx.Disposable {
+export interface Disposable {
+    dispose(): any;
+}
+export interface IObservableController extends IObservableThing, Disposable {
 }
 export declare enum Visibility {
     visible = 0,

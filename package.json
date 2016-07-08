@@ -7,7 +7,8 @@
   "scripts": {
     "test": "mocha built/**/*_test.js",
     "build": "tsc -p .",
-    "bundle": "webpack"
+    "bundle": "webpack",
+    "clean": "rimraf built && rimraf dist"
   },
   "author": "",
   "license": "ISC",
